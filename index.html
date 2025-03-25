@@ -14,7 +14,36 @@
             text-align: center;
             height: 100%;
             overflow-y: auto;
+            position: relative;
         }
+
+        /* Animação de corações caindo */
+        .heart {
+            position: absolute;
+            font-size: 24px;
+            color: red;
+            animation: fall 3s infinite;
+        }
+
+        @keyframes fall {
+            0% {
+                top: -10%;
+                left: calc(100% * random());
+                opacity: 1;
+            }
+            100% {
+                top: 100%;
+                opacity: 0;
+            }
+        }
+
+        /* Gerar corações em locais aleatórios */
+        .heart:nth-child(even) {
+            animation-duration: 3s;
+            animation-timing-function: ease-in;
+        }
+
+        /* Estilo geral da página */
         .container {
             max-width: 90%;
             margin: 20px auto;
@@ -23,32 +52,38 @@
             border-radius: 10px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         }
+
         .carousel-container {
             position: relative;
             width: 100%;
             overflow: hidden;
             margin-bottom: 20px;
         }
+
         .carousel {
             display: flex;
             transition: transform 0.5s ease;
         }
+
         .memory {
-            flex: 0 0 100%; /* Garantir que cada imagem ocupe toda a largura */
+            flex: 0 0 100%;
             text-align: center;
         }
+
         img {
             width: 100%;
             height: auto;
             border-radius: 10px;
-            object-fit: cover; /* Garante que a imagem preencha todo o espaço */
+            object-fit: cover;
         }
+
         .memory p {
             margin-top: 10px;
             font-size: 18px;
             color: #555;
             padding: 0 10px;
         }
+
         .button {
             display: inline-block;
             padding: 10px 20px;
@@ -58,11 +93,13 @@
             border-radius: 5px;
             margin-top: 10px;
         }
+
         .music iframe {
             width: 100%;
             height: 500px;
             border: none;
         }
+
         .nav-button {
             position: absolute;
             top: 50%;
@@ -73,26 +110,40 @@
             padding: 10px;
             cursor: pointer;
         }
+
         .prev {
             left: 0;
         }
+
         .next {
             right: 0;
         }
+
         @media screen and (max-width: 600px) {
             .carousel-container {
                 width: 100%;
             }
+
             .carousel {
-                display: block; /* Certifica-se de que o carrossel seja exibido corretamente no celular */
+                display: block;
             }
+
             .memory p {
-                font-size: 16px; /* Ajuste do tamanho da fonte no celular */
+                font-size: 16px;
             }
         }
     </style>
 </head>
 <body>
+    <!-- Animação dos corações -->
+    <div class="hearts">
+        <div class="heart" style="left: 20%;">❤️</div>
+        <div class="heart" style="left: 50%;">❤️</div>
+        <div class="heart" style="left: 80%;">❤️</div>
+        <div class="heart" style="left: 25%;">❤️</div>
+        <div class="heart" style="left: 75%;">❤️</div>
+    </div>
+
     <div class="container">
         <h1>Memórias com Anny 💖</h1>
 
@@ -127,7 +178,7 @@
         <div class="memory">
             <h2>Vídeo especial</h2>
             <video controls>
-                <source src="IMG_8164.MOV" type="video/mov">
+                <source src="teamo.MP4" type="video/MP4">
                 Seu navegador não suporta vídeos.
             </video>
         </div>
