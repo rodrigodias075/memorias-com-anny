@@ -13,7 +13,7 @@
             background-color: #fbe8e7;
             text-align: center;
             height: 100%;
-            overflow-y: auto; /* Garante que a rolagem esteja ativada */
+            overflow-y: auto;
         }
         .container {
             max-width: 90%;
@@ -80,7 +80,6 @@
         .next {
             right: 0;
         }
-        /* Responsividade para telas pequenas */
         @media screen and (max-width: 600px) {
             .container {
                 padding: 10px;
@@ -98,7 +97,6 @@
     <div class="container">
         <h1>Memórias com Anny 💖</h1>
 
-        <!-- Carrossel de imagens com botões -->
         <div class="carousel-container">
             <button class="nav-button prev" onclick="moveSlide(-1)">❮</button>
             <div class="carousel">
@@ -130,7 +128,7 @@
         <div class="memory">
             <h2>Vídeo especial</h2>
             <video controls>
-                <source src="teamo.MP4" type="video/mp4">
+                <source src="teamo.MP4" type="video/MP4">
                 Seu navegador não suporta vídeos.
             </video>
         </div>
