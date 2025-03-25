@@ -5,40 +5,132 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Memórias com Anny</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fbe8e7;
+            text-align: center;
+            height: 100%;
+            overflow-y: auto; /* Garante que a rolagem esteja ativada */
+        }
+        .container {
+            max-width: 90%;
+            margin: 20px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .carousel-container {
+            position: relative;
+            width: 100%;
+            max-width: 100%;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+        .carousel {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+        .memory {
+            flex: 0 0 auto;
+            margin-right: 15px;
+            max-width: 100%;
+        }
+        img {
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+        video {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+        .button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #ff5e78;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+        .music iframe {
+            width: 100%;
+            height: 80px;
+            border: none;
+        }
+        .nav-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+        }
+        .prev {
+            left: 0;
+        }
+        .next {
+            right: 0;
+        }
+        /* Responsividade para telas pequenas */
+        @media screen and (max-width: 600px) {
+            .container {
+                padding: 10px;
+            }
+            .nav-button {
+                padding: 5px;
+            }
+            .carousel-container {
+                width: 100%;
+            }
+        }
+    </style>
 </head>
 <body>
     <div class="container">
         <h1>Memórias com Anny 💖</h1>
 
-        <!-- Carrossel de imagens -->
-        <div class="carousel">
-            <div class="memory">
-                <img src="1b121ad8-a1c8-4d84-9247-5485191d5773.jpg" alt="Imagem 1">
-                <p>Você é o meu sonho realizado, a razão do meu sorriso diário. 💕</p>
+        <!-- Carrossel de imagens com botões -->
+        <div class="carousel-container">
+            <button class="nav-button prev" onclick="moveSlide(-1)">❮</button>
+            <div class="carousel">
+                <div class="memory">
+                    <img src="1b121ad8-a1c8-4d84-9247-5485191d5773.jpg" alt="Imagem 1">
+                    <p>Você é o meu sonho realizado, a razão do meu sorriso diário. 💕</p>
+                </div>
+                <div class="memory">
+                    <img src="IMG_7431.JPG" alt="Imagem 2">
+                    <p>Cada momento ao seu lado é uma eternidade de felicidade. 💫</p>
+                </div>
+                <div class="memory">
+                    <img src="IMG_0523.JPG" alt="Imagem 3">
+                    <p>Onde você estiver, é lá o meu lugar, com você. ❤️</p>
+                </div>
+                <div class="memory">
+                    <img src="IMG_6732.JPEG" alt="Imagem 4">
+                    <p>Te amar é a melhor parte da minha vida. 🌹</p>
+                </div>
+                <div class="memory">
+                    <img src="IMG_7213.JPEG" alt="Imagem 5">
+                    <p>Com você, cada segundo se transforma em eternidade. 💖</p>
+                </div>
             </div>
-            <div class="memory">
-                <img src="IMG_7431.JPG" alt="Imagem 2">
-                <p>Cada momento ao seu lado é uma eternidade de felicidade. 💫</p>
-            </div>
-            <div class="memory">
-                <img src="IMG_0523.JPG" alt="Imagem 3">
-                <p>Onde você estiver, é lá o meu lugar, com você. ❤️</p>
-            </div>
-            <div class="memory">
-                <img src="IMG_6732.JPEG" alt="Imagem 4">
-                <p>Te amar é a melhor parte da minha vida. 🌹</p>
-            </div>
-            <div class="memory">
-                <img src="IMG_7213.JPEG" alt="Imagem 5">
-                <p>Com você, cada segundo se transforma em eternidade. 💖</p>
-            </div>
+            <button class="nav-button next" onclick="moveSlide(1)">❯</button>
         </div>
 
         <!-- Vídeo -->
         <div class="memory">
             <h2>Vídeo especial</h2>
             <video controls>
-                <source src="IMG_8164.MOV" type="video/mov">
+                <source src="teamo.MP4" type="video/mp4">
                 Seu navegador não suporta vídeos.
             </video>
         </div>
@@ -46,8 +138,27 @@
         <!-- Música -->
         <div class="memory">
             <h2>Nossa música</h2>
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/BkpqU3gdjlw?autoplay=1&controls=0&showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/lV2plyhSRBU?autoplay=1&controls=0&showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
         </div>
     </div>
+
+    <script>
+        let currentIndex = 0;
+
+        function moveSlide(direction) {
+            const carousel = document.querySelector('.carousel');
+            const totalSlides = document.querySelectorAll('.memory').length;
+            currentIndex += direction;
+
+            if (currentIndex < 0) {
+                currentIndex = totalSlides - 1;
+            } else if (currentIndex >= totalSlides) {
+                currentIndex = 0;
+            }
+
+            const newTransformValue = -currentIndex * 100;
+            carousel.style.transform = `translateX(${newTransformValue}%)`;
+        }
+    </script>
 </body>
 </html>
