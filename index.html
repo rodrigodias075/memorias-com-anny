@@ -5,112 +5,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Memórias com Anny</title>
     <link rel="stylesheet" href="styles.css">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #fbe8e7;
-            margin: 0;
-            padding: 0;
-            text-align: center;
-        }
-        
-        .container {
-            max-width: 1000px;
-            margin: 20px auto;
-            padding: 20px;
-            background: white;
-            border-radius: 10px;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-        }
-        
-        h1 {
-            color: #ff5e78;
-        }
-        
-        /* Estilo do carrossel */
-        .carousel {
-            position: relative;
-            width: 100%;
-            max-width: 800px;
-            margin: 0 auto;
-            overflow: hidden;
-        }
-
-        .carousel-images {
-            display: flex;
-            transition: transform 0.5s ease-in-out;
-        }
-
-        .carousel-images img {
-            width: 100%;
-            border-radius: 10px;
-            object-fit: cover;
-        }
-
-        .button-prev, .button-next {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background-color: rgba(0, 0, 0, 0.5);
-            color: white;
-            padding: 10px;
-            border: none;
-            font-size: 18px;
-            cursor: pointer;
-            z-index: 1;
-        }
-
-        .button-prev {
-            left: 10px;
-        }
-
-        .button-next {
-            right: 10px;
-        }
-
-        /* Corações caindo */
-        .heart {
-            position: absolute;
-            top: -50px;
-            font-size: 30px;
-            animation: fall 3s forwards;
-        }
-
-        @keyframes fall {
-            0% {
-                top: -50px;
-                opacity: 1;
-            }
-            100% {
-                top: 100vh;
-                opacity: 0;
-            }
-        }
-    </style>
 </head>
 <body>
     <div class="container">
         <h1>Memórias com Anny 💖</h1>
 
-        <!-- Carrossel de Imagens -->
+        <!-- Carrossel de imagens -->
         <div class="carousel">
-            <div class="carousel-images">
-                <img src="file:///D:/Users/Fernando/Pictures/rodrigo/Fotos%20do%20iCloud%20de%20Rodrigo%20Dias/Anny%26Rodrigo/IMG_0523.JPG" alt="">
-                <img src="file:///D:/Users/Fernando/Pictures/rodrigo/Fotos%20do%20iCloud%20de%20Rodrigo%20Dias/Anny%26Rodrigo/IMG_6732.JPEG" alt="">
-                <img src="file:///D:/Users/Fernando/Pictures/rodrigo/Fotos%20do%20iCloud%20de%20Rodrigo%20Dias/Anny%26Rodrigo/IMG_7213.JPEG" alt="">
-                <img src="file:///D:/Users/Fernando/Pictures/rodrigo/Fotos%20do%20iCloud%20de%20Rodrigo%20Dias/Anny%26Rodrigo/IMG_7431.JPG" alt="">
-                <img src="file:///D:/Users/Fernando/Pictures/rodrigo/Fotos%20do%20iCloud%20de%20Rodrigo%20Dias/Anny%26Rodrigo/IMG_8164.JPEG" alt="">
-                <img src="file:///D:/Users/Fernando/Pictures/rodrigo/Fotos%20do%20iCloud%20de%20Rodrigo%20Dias/Anny%26Rodrigo/1b121ad8-a1c8-4d84-9247-5485191d5773.jpg" alt="">
+            <div class="memory">
+                <img src="1b121ad8-a1c8-4d84-9247-5485191d5773.jpg" alt="Imagem 1">
+                <p>Você é o meu sonho realizado, a razão do meu sorriso diário. 💕</p>
             </div>
-            <button class="button-prev" onclick="prevSlide()">&#10094;</button>
-            <button class="button-next" onclick="nextSlide()">&#10095;</button>
+            <div class="memory">
+                <img src="IMG_7431.JPG" alt="Imagem 2">
+                <p>Cada momento ao seu lado é uma eternidade de felicidade. 💫</p>
+            </div>
+            <div class="memory">
+                <img src="IMG_0523.JPG" alt="Imagem 3">
+                <p>Onde você estiver, é lá o meu lugar, com você. ❤️</p>
+            </div>
+            <div class="memory">
+                <img src="IMG_6732.JPEG" alt="Imagem 4">
+                <p>Te amar é a melhor parte da minha vida. 🌹</p>
+            </div>
+            <div class="memory">
+                <img src="IMG_7213.JPEG" alt="Imagem 5">
+                <p>Com você, cada segundo se transforma em eternidade. 💖</p>
+            </div>
         </div>
 
         <!-- Vídeo -->
         <div class="memory">
             <h2>Vídeo especial</h2>
             <video controls>
-                <source src="file:///D:/Users/Fernando/Pictures/rodrigo/Fotos%20do%20iCloud%20de%20Rodrigo%20Dias/Anny%26Rodrigo/IMG_8164.MOV" type="video/mov">
+                <source src="IMG_8164.MOV" type="video/mov">
                 Seu navegador não suporta vídeos.
             </video>
         </div>
@@ -121,50 +49,5 @@
             <iframe width="560" height="315" src="https://www.youtube.com/embed/BkpqU3gdjlw?autoplay=1&controls=0&showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
         </div>
     </div>
-
-    <!-- Script para o carrossel e corações caindo -->
-    <script>
-        const carouselImages = document.querySelector('.carousel-images');
-        let currentIndex = 0;
-
-        function prevSlide() {
-            if (currentIndex === 0) {
-                currentIndex = carouselImages.children.length - 1;
-            } else {
-                currentIndex--;
-            }
-            updateCarousel();
-        }
-
-        function nextSlide() {
-            if (currentIndex === carouselImages.children.length - 1) {
-                currentIndex = 0;
-            } else {
-                currentIndex++;
-            }
-            updateCarousel();
-        }
-
-        function updateCarousel() {
-            const offset = -currentIndex * 100;
-            carouselImages.style.transform = `translateX(${offset}%)`;
-        }
-
-        // Criar corações caindo
-        function createHeart() {
-            const heart = document.createElement('div');
-            heart.classList.add('heart');
-            heart.textContent = '💖';
-
-            heart.style.left = Math.random() * window.innerWidth + 'px';
-            document.body.appendChild(heart);
-
-            setTimeout(() => {
-                heart.remove();
-            }, 3000); // Tempo de animação dos corações
-        }
-
-        setInterval(createHeart, 200); // Criar corações a cada 200ms
-    </script>
 </body>
 </html>
