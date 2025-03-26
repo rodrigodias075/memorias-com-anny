@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Memórias com Anny</title>
+    <title>Memórias com Amor ❤️</title>
     <link rel="stylesheet" href="styles.css">
     <style>
         body {
@@ -18,24 +18,29 @@
         }
 
         /* Animação de corações caindo */
+        .hearts {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 0;
+        }
+
         .heart {
             position: absolute;
             font-size: 30px;
             color: red;
             animation: fall 12s infinite linear;
             opacity: 1;
-            z-index: 1;
         }
 
         @keyframes fall {
             0% {
                 top: -10%;
-                left: calc(100% * random());
+                left: 5%;
                 opacity: 1;
-            }
-            50% {
-                top: 50%;
-                opacity: 0.7;
             }
             100% {
                 top: 100%;
@@ -62,13 +67,14 @@
 
         .carousel {
             display: flex;
-            transition: transform 0.5s ease;
             width: 100%;
+            justify-content: center;
         }
 
         .memory {
-            flex: 0 0 100%;
             text-align: center;
+            flex: 1;
+            margin: 0 10px;
         }
 
         img {
@@ -99,25 +105,6 @@
             width: 100%;
             height: 500px;
             border: none;
-        }
-
-        .nav-button {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background-color: rgba(0, 0, 0, 0.5);
-            color: white;
-            border: none;
-            padding: 10px;
-            cursor: pointer;
-        }
-
-        .prev {
-            left: 0;
-        }
-
-        .next {
-            right: 0;
         }
 
         @media screen and (max-width: 600px) {
@@ -160,10 +147,9 @@
     </div>
 
     <div class="container">
-        <h1>Memórias com Anny 💖</h1>
+        <h1>Memórias com Amor 💖</h1>
 
         <div class="carousel-container">
-            <button class="nav-button prev" onclick="moveSlide(-1)">❮</button>
             <div class="carousel">
                 <div class="memory">
                     <img src="1b121ad8-a1c8-4d84-9247-5485191d5773.jpg" alt="Imagem 1">
@@ -186,14 +172,13 @@
                     <p>Com você, cada segundo se transforma em eternidade. 💖</p>
                 </div>
             </div>
-            <button class="nav-button next" onclick="moveSlide(1)">❯</button>
         </div>
 
         <!-- Vídeo -->
         <div class="memory">
             <h2>Vídeo especial</h2>
             <video controls>
-                <source src="IMG_8164.MOV" type="video/mov">
+                <source src="teamo.mp4" type="video/mp4"> 
                 Seu navegador não suporta vídeos.
             </video>
         </div>
@@ -204,24 +189,5 @@
             <iframe width="100%" height="500" src="https://www.youtube.com/embed/lV2plyhSRBU?autoplay=1&controls=1&showinfo=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
         </div>
     </div>
-
-    <script>
-        let currentIndex = 0;
-
-        function moveSlide(direction) {
-            const carousel = document.querySelector('.carousel');
-            const totalSlides = document.querySelectorAll('.memory').length;
-            currentIndex += direction;
-
-            if (currentIndex < 0) {
-                currentIndex = totalSlides - 1;
-            } else if (currentIndex >= totalSlides) {
-                currentIndex = 0;
-            }
-
-            const newTransformValue = -currentIndex * 100;
-            carousel.style.transform = `translateX(${newTransformValue}%)`;
-        }
-    </script>
 </body>
 </html>
