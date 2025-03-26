@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Memórias com Anny</title>
+    <title>Memórias com Amor ❤️ </title>
     <link rel="stylesheet" href="styles.css">
     <style>
         body {
@@ -20,9 +20,11 @@
         /* Animação de corações caindo */
         .heart {
             position: absolute;
-            font-size: 24px;
+            font-size: 30px;
             color: red;
-            animation: fall 3s infinite;
+            animation: fall s infinite;
+            opacity: 1;
+            z-index: 1;
         }
 
         @keyframes fall {
@@ -31,16 +33,14 @@
                 left: calc(100% * random());
                 opacity: 1;
             }
+            50% {
+                top: 50%;
+                opacity: 0.7;
+            }
             100% {
                 top: 100%;
                 opacity: 0;
             }
-        }
-
-        /* Gerar corações em locais aleatórios */
-        .heart:nth-child(even) {
-            animation-duration: 3s;
-            animation-timing-function: ease-in;
         }
 
         /* Estilo geral da página */
@@ -135,13 +135,27 @@
     </style>
 </head>
 <body>
-    <!-- Animação dos corações -->
+    <!-- Animação dos corações (múltiplos corações caindo) -->
     <div class="hearts">
+        <div class="heart" style="left: 10%;">❤️</div>
         <div class="heart" style="left: 20%;">❤️</div>
+        <div class="heart" style="left: 30%;">❤️</div>
+        <div class="heart" style="left: 40%;">❤️</div>
         <div class="heart" style="left: 50%;">❤️</div>
+        <div class="heart" style="left: 60%;">❤️</div>
+        <div class="heart" style="left: 70%;">❤️</div>
         <div class="heart" style="left: 80%;">❤️</div>
+        <div class="heart" style="left: 90%;">❤️</div>
+        <div class="heart" style="left: 15%;">❤️</div>
         <div class="heart" style="left: 25%;">❤️</div>
+        <div class="heart" style="left: 35%;">❤️</div>
+        <div class="heart" style="left: 45%;">❤️</div>
+        <div class="heart" style="left: 55%;">❤️</div>
+        <div class="heart" style="left: 65%;">❤️</div>
         <div class="heart" style="left: 75%;">❤️</div>
+        <div class="heart" style="left: 85%;">❤️</div>
+        <div class="heart" style="left: 5%;">❤️</div>
+        <div class="heart" style="left: 95%;">❤️</div>
     </div>
 
     <div class="container">
